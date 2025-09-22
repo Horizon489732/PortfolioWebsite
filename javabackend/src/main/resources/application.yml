@@ -1,0 +1,15 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: javabackend
+
+logging:
+  level:
+    org.springframework.web.reactive.function.client.ExchangeFunctions: TRACE
+
+# Custom property for our factorization service
+factorize:
+  service:
+    url: ${FACTORIZE_SERVICE_URL:http://localhost:8000}

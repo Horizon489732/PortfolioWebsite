@@ -1,0 +1,36 @@
+# Use a base image with Maven and Java
+FROM maven:3.9.8-eclipse-temurin-21 AS build
+
+# Set the working directory inside the container
+WORKDIR /app
+
+# Copy the pom.xml file to the container
+COPY pom.xml .
+
+# Download the dependencies specified in the pom.xml file
+RUN mvn dependency:go-offline -B
+
+# Copy the source code to the container
+COPY src ./src
+
+# Build the jar file
+RUN mvn package -DskipTests
+
+# Use a lightweight base image with Java
+FROM openjdk:21-jdk-slim
+
+# Set the working directory inside the container
+WORKDIR /app
+
+# Copy the jar file from the build stage to the container
+COPY --from=build /app/target/*.jar app.jar
+
+# Set environment variables for configuration
+ENV APP_PORT=8080
+ENV APP_LOG_LEVEL=INFO
+
+# Expose the port on which the application will listen
+EXPOSE $APP_PORT
+
+# Run the jar file
+CMD ["java", "-jar", "app.jar"]

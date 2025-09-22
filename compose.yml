@@ -1,0 +1,21 @@
+services:
+  
+  django-web:
+    build: ./pythonbackend 
+    container_name: django-docker-portfolio
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./pythonbackend:/app
+    env_file:
+        - .env
+    command: python manage.py runserver 0.0.0.0:8000
+  
+  spring-boot-app:
+    build: ./javabackend
+    container_name: spring-boot-docker-portfolio
+    ports:
+      - "8080:8080"
+    env_file:
+      - .env
+    command: ["java", "-jar", "app.jar"]
