@@ -26,7 +26,7 @@ const Hero: FC = () => {
           </div>
 
           <div className="md:col-span-5">
-            <div className="h-full inset-0 mt-20 md:mt-0">
+            <div className="mt-20 md:mt-0 md:h-full">
               <Image src = {heroImage} alt = "My portrait" className="size-full object-cover filter grayscale"/>
             </div>
           </div>
