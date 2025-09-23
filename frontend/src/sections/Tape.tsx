@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, Fragment } from "react";
 import Brightness1Icon from '@mui/icons-material/Brightness1';
 
 /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
@@ -28,13 +28,17 @@ const Tape: FC = () => {
         <div className=" flex 
               [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]
               [-webkit-mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
-            <div className="flex flex-none gap-4 py-3">
-              {words.map((word) => (
-                <div key={word} className="inline-flex gap-4 items-center">
-                  <span className="uppercase font-extrabold text-sm">{word}</span>
-                  <Brightness1Icon sx={{ fontSize: 12 }} />
-                </div>
-              ))}
+            <div className="flex flex-none gap-4 py-3 animate-move-left [animation-duration:30s]">
+              {[...new Array(2)].fill(0).map((_, idx) => (
+                <Fragment key={idx}>
+                    {words.map((word) => (
+                      <div key={word} className="inline-flex gap-4 items-center">
+                        <span className="uppercase font-extrabold text-sm">{word}</span>
+                        <Brightness1Icon sx={{ fontSize: 12 }} />
+                      </div>
+                    ))}
+                </Fragment>
+              ))} 
             </div>
         </div>   
       </div>

@@ -1,4 +1,6 @@
+import { Translate } from "@mui/icons-material";
 import { brown, orange } from "@mui/material/colors";
+import { transform } from "next/dist/build/swc";
 import type { Config } from "tailwindcss";
 
 const config: Config = {
@@ -40,6 +42,21 @@ const config: Config = {
 
             fontFamily: {
                 sans: 'var(--font-archivo)'
+            },
+
+            keyframes: {
+                "move-left": {
+                    "0%": {
+                        transform: "translateX(0%)"
+                    },
+                    "100%": {
+                        transform: "translateX(-50%)"
+                    },
+                }
+            },
+
+            animation: {
+                "move-left": "move-left 1s linear infinite"
             },
 
             container: {
