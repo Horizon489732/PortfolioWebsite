@@ -50,14 +50,14 @@ const Projects: FC = () => {
 
                   <div className="lg:pb-16">
                       <div className="flex">
-                        <span className="bg-gradient-to-r from-white to-neutral-light  inline-flex font-bold uppercase tracking-widest text-sm  bg-clip-text text-transparent">{project.company}</span>
+                        <span className="bg-gradient-to-r from-support-brown to-support-orange  inline-flex font-bold uppercase tracking-widest text-sm  bg-clip-text text-transparent">{project.company}</span>
                       </div>
                       <h3 className="text-2xl md:text-4xl mt-2 md:mt-5 text-primary-dark">{project.title}</h3>
-                      <hr className="border-t-2 border-neutral-light mt-4 md:mt-5"/>
+                      <hr className="border-t-2 border-support-brown mt-4 md:mt-5"/>
                       <ul className="flex flex-col gap-4 mt-4 md:mt-5">
                         {project.results.map((result) => (
                           <li key={result.title} className="flex items-center gap-2 text-sm md:text-base text-white">
-                            <CheckCircleOutlineIcon className="w-3 h-3 md:w-5 md:h-5"/>
+                            <CheckCircleOutlineIcon sx={{ fontSize: { xs: 12, md: 20 } }} />
                             <span>{result.title}</span>
                           </li>
                         ))}

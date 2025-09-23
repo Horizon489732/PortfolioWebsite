@@ -1,3 +1,4 @@
+import { brown, orange } from "@mui/material/colors";
 import type { Config } from "tailwindcss";
 
 const config: Config = {
@@ -29,11 +30,11 @@ const config: Config = {
                 },
                 neutral: {
                     light: "#EBE9E1",
-                    dark: "#9ca3af",
+                    dark: "#dcdce2",
                 },
                 support: {
-                    blue: "#125EE4",
-                    teal: "#12E4A7",
+                    orange: "#FFB48F",
+                    brown: "#F5E6CC",
                 },
             },
 

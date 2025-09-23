@@ -32,7 +32,7 @@ const Header: FC = () => {
       <div className="container !max-w-full">
         <div className="flex justify-between h-20 items-center">
           <div>
-            <a href="/"><span className="text-xl font-bold uppercase">Kame&nbsp; Nokata</span></a>
+            <a href="/"><span className="text-xl font-bold uppercase">Hien&nbsp; Tran</span></a>
           </div>
           <div className="flex items-center gap-4">
             <div className="size-11 border border-primary-light rounded-full inline-flex items-center justify-center">
