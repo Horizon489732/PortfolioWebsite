@@ -29,7 +29,7 @@ const config: Config = {
                 },
                 neutral: {
                     light: "#EBE9E1",
-                    dark: "#1A1A1A",
+                    dark: "#9ca3af",
                 },
                 support: {
                     blue: "#125EE4",
