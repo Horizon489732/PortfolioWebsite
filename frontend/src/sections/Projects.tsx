@@ -4,6 +4,7 @@ import image2 from "@/assets/images/project-2.jpg";
 import Image from "next/image";
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import Button from "@/components/Button";
+import Card from "@/components/Card";
 
 /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
 const projects = [
@@ -43,14 +44,15 @@ const Projects: FC = () => {
         <h2 className="text-3xl text-center mt-6 md:text-5xl">Featured Projects</h2>
         <p className="text-center text-primary-light mt-4 md:text-lg lg:text-xl max-w-md mx-auto">See how I build applications that improve workflows and empower users.</p>
         <div className="flex flex-col mt-10 gap-20 md:mt-20">
-          {projects.map((project) => (
-            <div key={project.title} className="bg-accent px-8 pt-8 md:pt-12 md:px-10 lg:pt-16 lg:px-20 rounded-3xl relative z-0 overflow-hidden after:z-10 after:content-[''] after:absolute after:inset-0 after:outline-2 after:outline after:-outline-offset-2 after:rounded-3xl after:outline-white after:pointer-events-none">
-              
+          {projects.map((project, projectIdx) => (
+            <Card key={project.title}
+                  className="px-8 pt-8 pb-0 md:pt-12 md:px-10 lg:pt-16 lg:px-20 sticky"
+                  style={{ top: `calc(80px + ${projectIdx * 80}px)` }}>
               <div className="lg:grid lg:grid-cols-2 lg:gap-16">
 
                   <div className="lg:pb-16">
                       <div className="flex">
-                        <span className="bg-gradient-to-r from-support-brown to-support-orange  inline-flex font-bold uppercase tracking-widest text-sm  bg-clip-text text-transparent">{project.company}</span>
+                        <span className="bg-gradient-to-r from-support-brown to-support-orange inline-flex font-bold uppercase tracking-widest text-sm  bg-clip-text text-transparent">{project.company}</span>
                       </div>
                       <h3 className="text-2xl md:text-4xl mt-2 md:mt-5 text-primary-dark">{project.title}</h3>
                       <hr className="border-t-2 border-support-brown mt-4 md:mt-5"/>
@@ -76,7 +78,7 @@ const Projects: FC = () => {
                       <Image src={project.image} alt={project.title} className="mt-8 -mb-4 md:-mb-0 lg:mt-0 lg:absolute lg:bottom-0 lg:object-contain"/>
                   </div>
               </div>
-            </div>
+            </Card>
           ))}
         </div>
       </div>
