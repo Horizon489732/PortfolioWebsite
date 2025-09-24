@@ -1,4 +1,3 @@
-import { Translate } from "@mui/icons-material";
 import { transform } from "next/dist/build/swc";
 import type { Config } from "tailwindcss";
 

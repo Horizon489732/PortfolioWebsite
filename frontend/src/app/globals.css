@@ -7,3 +7,13 @@
         @apply lg:max-w-5xl;
     }
 }
+
+/* style for SplitType in the Hero Section */
+
+.line {
+    @apply overflow-hidden;
+}
+
+ .word {
+    @apply translate-y-full;
+ }
