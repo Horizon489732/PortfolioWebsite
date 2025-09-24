@@ -31,6 +31,7 @@ const Header: FC = () => {
   const [topLineScope, topLineAnimate] = useAnimate();
   const [bottomLineScope, bottomLineAnimate] = useAnimate();
   const [navScope, navAnimate] = useAnimate();
+  
 
   useEffect(() => {
 
@@ -70,12 +71,17 @@ const Header: FC = () => {
   }, [isOpen, topLineAnimate, topLineScope, bottomLineAnimate, bottomLineScope, navAnimate, navScope]);
 
   const handleClinkMobileNavItems = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    setIsOpen(false);
     const url = new URL(e.currentTarget.href);
     const hash = url.hash;
     const target = document.querySelector(hash);
     if (!target) return;
-    setIsOpen(false);
-    target.scrollIntoView({behavior: "smooth"})
+
+    setTimeout(() => {
+      target.scrollIntoView({ behavior: "smooth"});
+    }, 0);
+  
   }
 
   return (
