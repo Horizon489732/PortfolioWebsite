@@ -14,7 +14,7 @@ const Hero: FC = () => {
                   <h1 className="text-5xl md:text-6xl mt-40 md:mt-0">From Equations to Applications — Building Systems That Work</h1>
                   <div className="flex flex-col md:flex-row md:items-center mt-10 items-start gap-6">
                     <Button variant="secondary" iconAfter={
-                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="size-5">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-5">
                         <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 5.25 7.5 7.5 7.5-7.5m-15 6 7.5 7.5 7.5-7.5" />
                       </svg>
                     }>

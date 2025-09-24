@@ -2,7 +2,6 @@ import { FC } from "react";
 import image1 from "@/assets/images/project-1.jpg";
 import image2 from "@/assets/images/project-2.jpg";
 import Image from "next/image";
-import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import Button from "@/components/Button";
 import Card from "@/components/Card";
 
@@ -59,7 +58,9 @@ const Projects: FC = () => {
                       <ul className="flex flex-col gap-4 mt-4 md:mt-5">
                         {project.results.map((result) => (
                           <li key={result.title} className="flex items-center gap-2 text-sm md:text-base text-white">
-                            <CheckCircleOutlineIcon sx={{ fontSize: { xs: 12, md: 20 } }} />
+                            <svg className="w-4 h-4 md:w-5 md:h-5 flex-shrink-0" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M17 9L9.99998 16L6.99994 13M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                            </svg>
                             <span>{result.title}</span>
                           </li>
                         ))}

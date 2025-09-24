@@ -1,5 +1,4 @@
 import { FC, Fragment } from "react";
-import Brightness1Icon from '@mui/icons-material/Brightness1';
 
 /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
 
@@ -34,7 +33,9 @@ const Tape: FC = () => {
                     {words.map((word) => (
                       <div key={word} className="inline-flex gap-4 items-center">
                         <span className="uppercase font-extrabold text-sm">{word}</span>
-                        <Brightness1Icon sx={{ fontSize: 12 }} />
+                        <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 24 24" fill="currentColor">
+                          <circle cx="12" cy="12" r="12" />
+                        </svg>
                       </div>
                     ))}
                 </Fragment>

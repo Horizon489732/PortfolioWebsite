@@ -72,14 +72,10 @@ const Header: FC = () => {
   const handleClinkMobileNavItems = (e: React.MouseEvent<HTMLAnchorElement>) => {
     const url = new URL(e.currentTarget.href);
     const hash = url.hash;
-    const target = document.querySelector<HTMLElement>(hash);
+    const target = document.querySelector(hash);
     if (!target) return;
-
     setIsOpen(false);
-
     target.scrollIntoView({behavior: "smooth"})
-
-
   }
 
   return (
