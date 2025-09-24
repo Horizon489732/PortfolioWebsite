@@ -12,12 +12,8 @@ const navItems = [
     href: "#intro",
   },
   {
-    label: "Selected Works",
+    label: "Featured Projects",
     href: "#projects",
-  },
-  {
-    label: "Testimonials",
-    href: "#testimonials",
   },
   {
     label: "FAQs",
@@ -73,19 +69,34 @@ const Header: FC = () => {
     }
   }, [isOpen, topLineAnimate, topLineScope, bottomLineAnimate, bottomLineScope, navAnimate, navScope]);
 
+  const handleClinkMobileNavItems = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    const url = new URL(e.currentTarget.href);
+    const hash = url.hash;
+    const target = document.querySelector<HTMLElement>(hash);
+    if (!target) return;
+
+    setIsOpen(false);
+
+    target.scrollIntoView({behavior: "smooth"})
+
+
+  }
 
   return (
     <header className="fixed top-0 left-0 w-full backdrop-blur-md z-50">
       <div ref={navScope} className="fixed top-[80px] left-0 w-full h-0 overflow-hidden bg-neutral-light">
           <nav className="flex flex-col">
             {navItems.map(({label, href}) => (
-              <a href={href} key={label} className="py-8 text-secondary-dark border-t last:border-b border-secondary-light group/nav-items">
+              <a href={href} key={label} className="py-8 text-secondary-dark border-t last:border-b border-secondary-light group/nav-items relative isolate cursor-pointer"
+                 onClick={handleClinkMobileNavItems}>
                 <div className="container !max-w-full flex items-center justify-between">
                   <span className="text-3xl group-hover/nav-items:pl-4 transition-all durantion-500">{label}</span>
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6">
                     <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
                   </svg>
                 </div>
+
+                <div className="absolute w-full h-0 bg-support-brown group-hover/nav-items:h-full transition-all duration-500 bottom-0 -z-10"></div>
               </a>
             ))}
           </nav>

@@ -1,5 +1,4 @@
 import { Translate } from "@mui/icons-material";
-import { brown, orange } from "@mui/material/colors";
 import { transform } from "next/dist/build/swc";
 import type { Config } from "tailwindcss";
 
