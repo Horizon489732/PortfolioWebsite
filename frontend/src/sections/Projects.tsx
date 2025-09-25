@@ -46,7 +46,7 @@ const Projects: FC = () => {
           {projects.map((project, projectIdx) => (
             <Card key={project.title}
                   className="px-8 pt-8 pb-0 md:pt-12 md:px-10 lg:pt-16 lg:px-20 sticky"
-                  style={{ top: `calc(80px + ${projectIdx * 56}px)` }}>
+                  style={{ top: `calc(45px + ${projectIdx * 56}px)` }}>
               <div className="lg:grid lg:grid-cols-2 lg:gap-16">
 
                   <div className="lg:pb-16">
@@ -70,7 +70,7 @@ const Projects: FC = () => {
                           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-4 text-primary-dark">
                             <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
                           </svg>
-                        } className="normal-case bg-secondary-light h-12 mt-8"><span className="text-primary-dark">View Project</span></Button>
+                        } className="normal-case bg-secondary-light h-12 mt-8 hover:bg-neutral-light hover:text-primary hover:border-primary-dark"><span className="text-primary-dark">View Project</span></Button>
                       </a>
 
                   </div>
