@@ -91,6 +91,7 @@ const Header: FC = () => {
             {navItems.map(({label, href}) => (
               <a href={href} key={label} className="py-8 text-secondary-dark border-t last:border-b border-secondary-light group/nav-items relative isolate cursor-pointer"
                  onClick={handleClinkMobileNavItems}>
+
                 <div className="container !max-w-full flex items-center justify-between">
                   <span className="text-3xl group-hover/nav-items:pl-4 transition-all durantion-500">{label}</span>
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6">

@@ -15,5 +15,5 @@
 }
 
  .word {
-    @apply translate-y-full;
+    @apply inline-block translate-y-full;
  }

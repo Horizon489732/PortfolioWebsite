@@ -1,17 +1,24 @@
 "use client";
 
-import { FC, useEffect } from "react";
+import { FC, useEffect, useRef } from "react";
 /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
 import heroImage from "@/assets/images/hero-image.jpg";
 import Image from "next/image";
 import Button from "@/components/Button";
 import SplitType from "split-type";
-import { motion, useAnimate } from "motion/react";
-import { stagger } from "motion";
+import { motion, useAnimate, useScroll, stagger, useTransform } from "motion/react";
 
 const Hero: FC = () => {
 
   const [titleScope, titleAnimate] = useAnimate();
+  const scrollingDiv = useRef<HTMLDivElement>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: scrollingDiv,
+    offset: ["start end", "end end"],
+  });
+
+  const portraitWidth = useTransform(scrollYProgress, [0, 1], ["100%", "240%"]);
 
   useEffect(()=>{
 
@@ -23,7 +30,7 @@ const Hero: FC = () => {
 
   return (
     <section>
-      <div className="grid md:grid-cols-12 md:h-screen items-stretch">
+      <div className="grid md:grid-cols-12 md:h-screen items-stretch sticky top-0">
 
           <div className="md:col-span-7 flex flex-col justify-center">
                 <div className="container !max-w-full">
@@ -61,13 +68,16 @@ const Hero: FC = () => {
                 </div>
           </div>
 
-          <div className="md:col-span-5">
-            <div className="mt-20 md:mt-0 md:h-full">
+          <div className="md:col-span-5 relative">
+            <motion.div className="mt-20 md:mt-0 md:size-full md:absolute md:right-0 max-md:!w-full"
+                 style={{width: portraitWidth}}>
               <Image src = {heroImage} alt = "My portrait" className="size-full object-cover filter grayscale"/>
-            </div>
+            </motion.div>
           </div>
                   
       </div>
+
+      <div ref={scrollingDiv} className="md:h-[200vh]"></div>
     </section>
   );
 };
