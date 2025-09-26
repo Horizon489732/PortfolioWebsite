@@ -20,6 +20,10 @@ const navItems = [
     href: "#about",
   },
   {
+    label: "Experience",
+    href: "#experience",
+  },
+  {
     label: "Contact",
     href: "#contact",
   },

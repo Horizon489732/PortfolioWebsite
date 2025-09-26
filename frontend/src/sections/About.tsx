@@ -62,7 +62,7 @@ const About: FC = () => {
       category: "AI / ML",
       items: [
         { name: "PyTorch", logo: PytorchLogo },
-        { name: "scikit-learn", logo: SklearnLogo },
+        { name: "Sklearn", logo: SklearnLogo },
         { name: "TensorFlow", logo: TensorflowLogo },
         { name: "NumPy", logo: NumpyLogo },
         { name: "Pandas", logo: PandasLogo },
@@ -109,9 +109,9 @@ const About: FC = () => {
                 {section.items.map((tech) => (
                   <div
                     key={tech.name}
-                    className="techItem opacity-0 flex flex-col items-center justify-center p-4 bg-gray-100 rounded-lg transform transition-transform hover:-translate-y-1 hover:scale-105 cursor-pointer"
+                    className="techItem opacity-0 flex flex-col items-center justify-center p-4 bg-support-brown border-2 border-white rounded-lg transform ease-out transition-transform hover:-translate-y-1 hover:scale-105 cursor-pointer"
                   >
-                    <Image src={tech.logo} alt={tech.name} width={48} height={48} />
+                    <Image src={tech.logo} alt={tech.name} className="w-9 h-9 md:w-12 md:h-12" />
                     <span className="mt-2 font-medium text-primary-light">{tech.name}</span>
                   </div>
                 ))}
