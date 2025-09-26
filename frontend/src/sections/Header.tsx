@@ -8,7 +8,7 @@ import Button from "@/components/Button";
 /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
 const navItems = [
   {
-    label: "About",
+    label: "Introduction",
     href: "#intro",
   },
   {
@@ -16,8 +16,8 @@ const navItems = [
     href: "#projects",
   },
   {
-    label: "FAQs",
-    href: "#faqs",
+    label: "About",
+    href: "#about",
   },
   {
     label: "Contact",

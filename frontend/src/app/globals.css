@@ -14,6 +14,8 @@
     @apply overflow-hidden;
 }
 
- .word {
+ .word, .categoryBox {
     @apply inline-block translate-y-full;
  }
+
+ 

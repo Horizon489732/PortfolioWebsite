@@ -1,7 +1,6 @@
 "use client";
 
 import { useAnimate, useInView, stagger } from "motion/react";
-import { transform } from "next/dist/build/swc";
 import { FC, useEffect } from "react";
 import SplitType from "split-type";
 

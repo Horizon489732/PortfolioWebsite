@@ -1,6 +1,7 @@
 "use client";
 
-import { FC } from "react";
+import { FC, useEffect } from "react";
+import { useAnimate, useInView, stagger } from "motion/react";
 import Image from "next/image";
 
 import PythonLogo from "@/assets/logos/python.svg";
@@ -53,7 +54,7 @@ const About: FC = () => {
         { name: "Node.js", logo: NodeLogo },
         { name: "Django", logo: DjangoLogo },
         { name: "Springboot", logo: SpringLogo },
-        { name: "MongoDb", logo: MongoDBLogo },
+        { name: "MongoDB", logo: MongoDBLogo },
         { name: "MySQL", logo: MySQLLogo },
       ],
     },
@@ -79,9 +80,22 @@ const About: FC = () => {
     },
   ];
 
+  const [scope, animate] = useAnimate();
+  const inView = useInView(scope, { once: true });
+
+  useEffect(() => {
+    if (inView) {
+      animate(
+        ".techItem",
+        { opacity: 1, transform: "translateY(0)" },
+        { duration: 0.6, delay: stagger(0.2) }
+      );
+    }
+  }, [inView, animate]);
+
   return (
-    <section className="pb-16 lg:py-24 bg-neutral-light">
-      <div className="container mx-auto px-4">
+    <section id="about" className="pb-16 lg:py-24 bg-neutral-light">
+      <div className="container mx-auto px-4" ref={scope}>
         <h2 className="text-3xl md:text-5xl mb-6 text-center">About Me</h2>
         <p className="text-lg lg:text-xl text-primary-light mb-12 text-center text-pretty max-w-2xl mx-auto">
           Hi! I&apos;m a passionate full-stack developer and AI/ML enthusiast with experience building scalable web applications, machine learning models, and cloud infrastructure.
@@ -95,7 +109,8 @@ const About: FC = () => {
                 {section.items.map((tech) => (
                   <div
                     key={tech.name}
-                    className="flex flex-col items-center justify-center p-4 bg-gray-100 rounded-lg transform transition-transform hover:-translate-y-1 hover:scale-105 cursor-pointer">
+                    className="techItem opacity-0 translate-y-6 flex flex-col items-center justify-center p-4 bg-gray-100 rounded-lg"
+                  >
                     <Image src={tech.logo} alt={tech.name} width={48} height={48} />
                     <span className="mt-2 font-medium text-primary-light">{tech.name}</span>
                   </div>
