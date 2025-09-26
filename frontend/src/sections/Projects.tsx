@@ -46,7 +46,7 @@ const Projects: FC = () => {
           {projects.map((project, projectIdx) => (
             <Card key={project.title}
                   className="px-8 pt-8 pb-0 md:pt-12 md:px-10 lg:pt-16 lg:px-20 sticky"
-                  style={{ top: `calc(45px + ${projectIdx * 56}px)` }}>
+                  style={{ top: `calc(80px + ${projectIdx * 20}px)` }}>
               <div className="lg:grid lg:grid-cols-2 lg:gap-16">
 
                   <div className="lg:pb-16">
@@ -76,8 +76,8 @@ const Projects: FC = () => {
 
                   </div>
 
-                  <div>
-                      <Image src={project.image} alt={project.title} className="mt-8 -mb-4 md:-mb-0 lg:mt-0 lg:absolute lg:bottom-0 lg:object-contain"/>
+                  <div className="relative">
+                      <Image src={project.image} alt={project.title} className="mt-8 -mb-4 md:-mb-0 lg:mt-0 lg:h-full lg:w-auto lg:max-w-none lg:absolute"/>
                   </div>
               </div>
             </Card>
