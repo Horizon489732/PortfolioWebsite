@@ -1,8 +1,9 @@
 import { HTMLAttributes } from "react";
 
 import Button from "./Button";
+import TheoryDetails from "./TheoryDetails";
 
-const TheoryCard = ( project: {
+const Theory = (project: {
     title: string,
     description: string,
     theory: Array<string>,
@@ -31,8 +32,10 @@ const TheoryCard = ( project: {
             </div>
 
             <div className="m-auto bg-gradient-to-r from-secondary-light to-secondary-dark h-[1px] w-[30vw]"></div>
+
+            <TheoryDetails key={project.id} title={project.title} description={project.description} theory={project.theory} href={project.href} tags={project.tags} />
         </>
     )
 }
 
-export default TheoryCard;
+export default Theory;

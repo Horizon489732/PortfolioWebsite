@@ -11,10 +11,10 @@ const projects = [
     company: "Criminology Institute For Research And Training",
     title: "Journal and Research Workflow Platform",
     results: [
-      { title: "Enabled criminology graduates to submit and manage research papers seamlessly, reducing manual paperwork." },
-      { title: "Improved departmental collaboration by providing a centralized platform for journals, submissions, and fellowships." },
-      { title: "Ensured secure, cloud-based storage of research files, protecting sensitive academic work." },
-      { title: "Provided real-time updates on submissions and journal status, speeding up review and feedback cycles." },
+      { title: "Seamless paper submission & management" },
+      { title: "Centralized collaboration for journals & fellowships" },
+      { title: "Secure cloud storage of research files" },
+      { title: "Real-time updates on submissions & reviews" },
     ],
     demo: "https://cirt-project.vercel.app/",
     image: image1,
@@ -23,10 +23,10 @@ const projects = [
     company: "BeachStore",
     title: "Employee Management System",
     results: [
-      { title: "Simplified employee time tracking and payroll, reducing errors and manual calculations." },
-      { title: "Enhanced operational efficiency by providing managers and owners with real-time financial and attendance reports." },
-      { title: "Improved security and privacy through role-based access, ensuring employees see only relevant information." },
-      { title: "Made daily operations easier for staff with an intuitive desktop interface, saving time and reducing training needs." }
+      { title: "Simplified time tracking & payroll" },
+      { title: "Real-time financial & attendance reports" },
+      { title: "Role-based access for security & privacy" },
+      { title: "Intuitive desktop interface for staff" }
     ],
     demo: "https://github.com/abbyburkett/Beach-Store-project",
     image: image2,

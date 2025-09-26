@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import TheoryCard from "@/components/TheoryCard";
+import Theory from "@/components/Theory";
 
 const myTheoryProjects = [
     {
@@ -41,12 +41,11 @@ const Theories: FC = () => {
 
     return (
         <section id="theories" className="mt-24">
-            <h2 className=" font-semibold text-3xl mb-10 md:mb-14 text-center mt-6 md:text-5xl">Theory into Practice</h2> 
+            <h2 className="font-semibold text-3xl mb-10 md:mb-14 text-center mt-6 md:text-5xl">Theory into Practice</h2> 
             <div className="m-auto bg-gradient-to-r from-secondary-light to-secondary-dark h-[1px] w-[30vw]"></div>
             <div className="pt-5">
                 {myTheoryProjects.map((project) => 
-                    <TheoryCard key={project.id} title={project.title} description={project.description} theory={project.theory} href={project.href} tags={project.tags}>
-                    </TheoryCard>
+                    <Theory key={project.id} title={project.title} description={project.description} theory={project.theory} href={project.href} tags={project.tags} />
                 )}
             </div>
         </section>
