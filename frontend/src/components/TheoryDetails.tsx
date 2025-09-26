@@ -1,18 +1,23 @@
 import { HTMLAttributes } from "react";
 import Card from "./Card";
 
+
 const TheoryDetails = (
+    props: {
     project: {
     title: string,
     description: string,
     theory: Array<string>,
     href: string,
-    tags: Array<string>,
-} & HTMLAttributes<HTMLDivElement>) => {
+    tags: Array<string>
+}, closeFunc: ()=>void} & HTMLAttributes<HTMLDivElement>) => {
+
+    const { project, closeFunc } = props;
+
     return(
         <div className="fixed isolate inset-0 z-50 flex items-center justify-center w-full h-full overflow-hidden backdrop-blur-sm">
             <Card>
-                <button>Close</button>
+                <button onClick={closeFunc}>Close</button>
 
                 <div>
                     <h5 className="mb-2 text-2xl font-bold text-white">{project.title}</h5>

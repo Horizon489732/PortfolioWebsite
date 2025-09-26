@@ -1,4 +1,6 @@
-import { HTMLAttributes } from "react";
+"use client";
+
+import { HTMLAttributes, useState } from "react";
 
 import Button from "./Button";
 import TheoryDetails from "./TheoryDetails";
@@ -10,6 +12,9 @@ const Theory = (project: {
     href: string,
     tags: Array<string>,
 } & HTMLAttributes<HTMLDivElement>) => {
+
+    const [isHidden, setIsHidden] = useState(false);
+
     return (
         <>
             <div className="flex flex-wrap items-end justify-between py-5 space-y-5 md:py-10 md:space-x-14">
@@ -26,14 +31,23 @@ const Theory = (project: {
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-4">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
                     </svg>
-                } className="py-0">
+                } className="py-0" onClick={() => setIsHidden(true)}>
                     <span className="align-bottom">Read More</span>
                 </Button>
             </div>
 
             <div className="m-auto bg-gradient-to-r from-secondary-light to-secondary-dark h-[1px] w-[30vw]"></div>
 
-            <TheoryDetails key={project.id} title={project.title} description={project.description} theory={project.theory} href={project.href} tags={project.tags} />
+           {isHidden && <TheoryDetails
+                        key={project.id}
+                        project={{
+                        title: project.title,
+                        description: project.description,
+                        theory: project.theory,
+                        href: project.href,
+                        tags: project.tags,
+                        }}
+                        closeFunc={() => setIsHidden(false)}/>}
         </>
     )
 }
