@@ -3,6 +3,7 @@ import Hero from "@/sections/Hero";
 import Intro from "@/sections/Intro";
 import Projects from "@/sections/Projects";
 import Tape from "@/sections/Tape"
+import About from "@/sections/About";
 import Theory from "@/sections/Theories";
 
 export default function Home() {
@@ -12,6 +13,7 @@ export default function Home() {
     <Intro />
     <Projects />
     <Tape />
+    <About />
     {/* <Theory /> */}
   </>;
 }
