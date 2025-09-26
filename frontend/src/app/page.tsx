@@ -12,6 +12,6 @@ export default function Home() {
     <Intro />
     <Projects />
     <Tape />
-    <Theory />
+    {/* <Theory /> */}
   </>;
 }

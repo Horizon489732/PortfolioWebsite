@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import Theory from "@/components/Theory";
+import Theory from "@/components/theoriesSectionComponents/Theory";
 
 const myTheoryProjects = [
     {
@@ -24,7 +24,7 @@ const myTheoryProjects = [
         title: "Legendre's Theorem & Lagrange's Descent",
         description: "Legendre gave necessary and sufficient conditions for the solvability of the Diophantine equation aX² + bY² + cZ² = 0 with non-zero, square-free coefficients. Lagrange's descent is a method to prove existence of solutions iteratively",
         theory: [
-            "Equation: aX² + bY² + cZ² = 0 with a, b, c ≠ 0 and square-free",
+            "Equation: aX² + bY² = cZ² with a, b, c ≠ 0 and square-free",
             "Non-trivial solution exists iff:",
             "1. Not all of a, b, c have the same sign",
             "2. Legendre conditions modulo each coefficient:",
@@ -45,7 +45,7 @@ const Theories: FC = () => {
             <div className="m-auto bg-gradient-to-r from-secondary-light to-secondary-dark h-[1px] w-[30vw]"></div>
             <div className="pt-5">
                 {myTheoryProjects.map((project) => 
-                    <Theory key={project.id} title={project.title} description={project.description} theory={project.theory} href={project.href} tags={project.tags} />
+                    <Theory key={project.id} projectId={project.id} title={project.title} description={project.description} theory={project.theory} href={project.href} tags={project.tags} />
                 )}
             </div>
         </section>

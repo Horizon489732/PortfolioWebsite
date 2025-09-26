@@ -2,10 +2,11 @@
 
 import { HTMLAttributes, useState } from "react";
 
-import Button from "./Button";
+import Button from "../Button";
 import TheoryDetails from "./TheoryDetails";
 
 const Theory = (project: {
+    projectId: number,
     title: string,
     description: string,
     theory: Array<string>,
@@ -41,6 +42,7 @@ const Theory = (project: {
            {isHidden && <TheoryDetails
                         key={project.id}
                         project={{
+                        projectId: project.projectId,
                         title: project.title,
                         description: project.description,
                         theory: project.theory,
