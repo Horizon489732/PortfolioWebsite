@@ -87,8 +87,8 @@ const About: FC = () => {
     if (inView) {
       animate(
         ".techItem",
-        { opacity: 1, transform: "translateY(0)" },
-        { duration: 0.6, delay: stagger(0.2) }
+        { opacity: 1 },
+        { duration: 0.5, delay: stagger(0.15), ease: [0.25, 1, 0.5, 1] }
       );
     }
   }, [inView, animate]);
@@ -109,7 +109,7 @@ const About: FC = () => {
                 {section.items.map((tech) => (
                   <div
                     key={tech.name}
-                    className="techItem opacity-0 translate-y-6 flex flex-col items-center justify-center p-4 bg-gray-100 rounded-lg"
+                    className="techItem opacity-0 flex flex-col items-center justify-center p-4 bg-gray-100 rounded-lg transform transition-transform hover:-translate-y-1 hover:scale-105 cursor-pointer"
                   >
                     <Image src={tech.logo} alt={tech.name} width={48} height={48} />
                     <span className="mt-2 font-medium text-primary-light">{tech.name}</span>
