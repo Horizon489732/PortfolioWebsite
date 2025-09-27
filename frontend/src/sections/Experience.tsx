@@ -1,7 +1,7 @@
 "use client";
 
 import { FC, useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, useMotionValueEvent, useMotionValue } from "framer-motion";
 
 const experiences = [
   {
@@ -45,6 +45,13 @@ const Experience: FC = () => {
     target: scrollingDiv,
     offset: ["start end", "end 72%"],
   });
+
+  const frozenProgress = useMotionValue(0);
+  useMotionValueEvent(scrollYProgress, "change", (latest) => {
+  if (latest > frozenProgress.get()) {
+    frozenProgress.set(Math.min(latest, 1)); // freeze at 1
+  }
+});
 
   const fanRotate = useTransform(scrollYProgress, [0, 1], [0, 3600]);
 
@@ -92,12 +99,12 @@ const Experience: FC = () => {
                       const end = (idx + 1) / total;
 
                       const opacity = useTransform(
-                        scrollYProgress,
+                        frozenProgress,
                         [start, end],
                         [0, 1],
                       );
                       const x = useTransform(
-                        scrollYProgress,
+                        frozenProgress,
                         [start, end],
                         [-20, 0]
                       );

@@ -16,6 +16,6 @@ export default function Home() {
     <Tape />
     <About />
     <Experience />
-    {/* <Theory /> */}
+    <Theory />
   </>;
 }
