@@ -8,7 +8,7 @@ const experiences = [
     role: "Undergraduate Research Assistant",
     company: "Suffolk University, Boston, MA",
     date: "May 2024 – Sep 2025",
-    bullets: [<>Contributed to the evaluation and optimization of a hybrid RoBERTa–TF-IDF model for multi-class classification of Reddit posts by suicide risk, achieving a weighted F1 score of 0.7512.
+    bullets: [<>Contributed to the evaluation and optimization of a hybrid RoBERTa–TF-IDF model for multi-class classification of Reddit posts by suicide risk, achieving a weighted F1 score of 0.7512
         <a
           href="https://your-paper-link.com"
           target="_blank"
@@ -17,9 +17,9 @@ const experiences = [
           View Paper
         </a>
       </>,
-      "Enhanced predictive performance through features preprocessing, resampling, weighted loss, data augmentation, bagging and ensemble strategies.",
-      "Conducted extensive benchmarking of 15+ machine learning classifiers, analyzing feature representations and model performance to identify optimal strategies for suicide risk prediction.",
-      "Scraped, cleaned, and processed a dataset of 1,200+ Reddit posts, applying preprocessing techniques to improve model robustness and generalization.",
+      "Enhanced predictive performance through features preprocessing, resampling, weighted loss, data augmentation, bagging and ensemble strategies",
+      "Conducted extensive benchmarking of 15+ machine learning classifiers, analyzing feature representations and model performance to identify optimal strategies for suicide risk prediction",
+      "Scraped, cleaned, and processed a dataset of 1,200+ Reddit posts, applying preprocessing techniques to improve model robustness and generalization",
     ],
   },
   {
@@ -27,8 +27,8 @@ const experiences = [
     company: "Suffolk University CLAS, Boston, MA",
     date: "Mar 2024 – Sep 2024",
     bullets: [
-      "Provided tailored 1-on-1 instruction in programming, algorithms, and mathematics, enabling students to improve grades and conceptual understanding.",
-      "Developed customized learning strategies that enhanced problem-solving skills and fostered student independence.",
+      "Provided tailored 1-on-1 instruction in programming, algorithms, and mathematics, enabling students to improve grades and conceptual understanding",
+      "Developed customized learning strategies that enhanced problem-solving skills and fostered student independence",
     ],
   },
 ];
@@ -50,7 +50,7 @@ const Experience: FC = () => {
 
   return (
     <section id="experience" className="pb-16 lg:py-24 bg-neutral-light">
-      <div className="container mx-auto px-4 max-w-4xl sticky -top-14">
+      <div className="container mx-auto px-4 max-w-4xl sticky -top-14 md:-top-20">
         <h2 className="text-3xl translate-y-1 text-center mt-6 md:text-5xl mb-10">
           Experience
         </h2>

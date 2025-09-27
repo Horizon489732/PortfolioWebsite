@@ -98,7 +98,7 @@ const About: FC = () => {
       <div className="container mx-auto px-4" ref={scope}>
         <h2 className="text-3xl md:text-5xl mb-6 text-center">About Me</h2>
         <p className="text-lg lg:text-xl text-primary-light mb-12 text-center text-pretty max-w-2xl mx-auto">
-          Hi! I&apos;m a passionate full-stack developer and AI/ML enthusiast with experience building scalable web applications, machine learning models, and cloud infrastructure.
+          Hi! I&apos;m a passionate full-stack developer and AI/ML enthusiast with experience building scalable web applications, machine learning models, and cloud infrastructure
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-5xl mx-auto">
@@ -109,7 +109,7 @@ const About: FC = () => {
                 {section.items.map((tech) => (
                   <div
                     key={tech.name}
-                    className="techItem opacity-0 flex flex-col items-center justify-center p-4 bg-support-brown border-2 border-white rounded-lg transform ease-out transition-transform hover:-translate-y-1 hover:scale-105 cursor-pointer"
+                    className="techItem opacity-0 flex flex-col items-center justify-center p-4 bg-support-brown border-2 border-white rounded-lg transform ease-out transition-transform hover:-translate-y-1 hover:scale-105 hover:rotate-[360deg] cursor-pointer"
                   >
                     <Image src={tech.logo} alt={tech.name} className="w-9 h-9 md:w-12 md:h-12" />
                     <span className="mt-2 font-medium text-primary-light">{tech.name}</span>

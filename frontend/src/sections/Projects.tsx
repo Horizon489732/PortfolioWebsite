@@ -41,7 +41,7 @@ const Projects: FC = () => {
           <p className="uppercase font-semibold tracking-widest bg-gradient-to-r from-secondary-light to-secondary-dark bg-clip-text text-transparent">Real-world Results</p>
         </div>
         <h2 className="text-3xl text-center mt-6 md:text-5xl">Featured Projects</h2>
-        <p className="text-center text-primary-light mt-4 md:text-lg lg:text-xl max-w-md mx-auto">See how I build applications that improve workflows and empower users.</p>
+        <p className="text-center text-primary-light mt-4 md:text-lg lg:text-xl max-w-md mx-auto">See how I build applications that improve workflows and empower users</p>
         <div className="flex flex-col mt-10 gap-20 md:mt-20">
           {projects.map((project, projectIdx) => (
             <Card key={project.title}
