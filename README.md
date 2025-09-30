@@ -37,13 +37,14 @@ A **full-stack personal portfolio** with a **Next.js frontend**, **Django backen
 
 ## Folder Structure
 
+```bash
 /frontend          # Next.js frontend
   /components      # React components (3DModel, ContactForm, Button)
   /public/model    # 3D models (GLTF + FBX)
 /backend/django    # Django API for contact form
 /backend/springboot # Spring Boot microservices
 docker-compose.yml  # Full stack orchestration
-
+```
 
 ---
 
