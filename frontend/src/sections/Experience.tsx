@@ -118,12 +118,7 @@ const Experience: FC = () => {
               <hr className="border-t-2 border-neutral-light mt-4 md:mt-5"/>
               <ul className="list-disc list-inside space-y-1 mt-4 md:mt-5 text-secondary-dark">
                 {exp.bullets.map((point, idx) => (
-                  <Bullet
-                    key={idx}
-                    index={idx}
-                    total={exp.bullets.length}
-                    frozenProgress={frozenProgress}
-                  >
+                  <Bullet key={idx} index={idx} total={exp.bullets.length} frozenProgress={frozenProgress}>
                     {point}
                   </Bullet>
                 ))}

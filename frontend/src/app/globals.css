@@ -18,4 +18,18 @@
     @apply inline-block translate-y-full;
  }
 
- 
+
+ /* style for the contact form */
+
+ .label {
+    @apply block mb-2 bg-neutral-light placeholder-support-orange w-full font-light text-sm md:text-base rounded-md;
+ } 
+
+ .input {
+    @apply bg-neutral-light placeholder-support-orange w-full font-light py-[1px] text-sm md:text-base
+            focus-visible:outline-none border-b-[1px] border-secondary-dark focus-visible:border-inherit;
+ }
+
+ .inputWrapper {
+    @apply relative after:content-[''] after:transition-all after:duration-500 after:h-[1px] after:w-0 after:absolute after:bottom-0 after:left-0 after:bg-secondary-dark focus-within:after:w-full;
+ }

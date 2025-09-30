@@ -125,7 +125,14 @@ const Header: FC = () => {
                                style = {{transformOrigin:"12px 16px"}}/>
               </svg>
             </div>
-            <Button variant="primary" className="hidden md:inline-flex">Contact Me</Button>
+            <Button variant="primary" className="hidden md:inline-flex"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      const element = document.querySelector("#contact");
+                       if (element) {
+                          element.scrollIntoView({ behavior: "smooth"})
+                      }
+                    }}>Contact Me</Button>
           </div>
         </div>
       </div>

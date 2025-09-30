@@ -58,12 +58,27 @@ const Hero: FC = () => {
                           </div>
 
                         </div>
-                      }>
+                      } onClick={(e) => {
+                        e.preventDefault()
+                        const projects = document.querySelector("#projects")
+
+                        if(projects) {
+                          projects.scrollIntoView({ behavior: "smooth"})
+                        }
+                      }} >
                         <span>View My Work</span>
                       </Button>
                     </motion.div>
                     <motion.div initial={{opacity: 0, y: "100%"}} animate={{opacity: 1, y: 0}} transition={{duration: 0.7, delay: 2}}>
-                      <Button variant="text">Let&apos;s Talk</Button>
+                      <Button variant="text"
+                              onClick={(e) => {
+                              e.preventDefault()
+                              const contact = document.querySelector("#contact")
+
+                              if(contact) {
+                                contact.scrollIntoView({ behavior: "smooth"})
+                              }
+                            }}>Let&apos;s Talk</Button>
                     </motion.div>
                   </div>
                 </div>
