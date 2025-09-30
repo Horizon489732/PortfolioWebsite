@@ -15,7 +15,7 @@ A **full-stack personal portfolio** with a **Next.js frontend**, **Django backen
 - Uses `@react-three/fiber` and `@react-three/drei` for 3D rendering.  
 
 ### Backends
-- **Django:** Handles Factorization using Elliptic Curve with Lenstra theorem".
+- **Django:** Handles Factorization using Elliptic Curve with Lenstra theorem.
 - **Spring Boot:** Computes Legendre's Theorem & Lagrange's Descent.  
 
 ### Deployment
