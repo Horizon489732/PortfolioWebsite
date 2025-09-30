@@ -80,7 +80,7 @@ docker-compose up --build
 
 * Frontend: [http://localhost:3000](http://localhost:3000)
 * Django API: [http://localhost:8000](http://localhost:8000)
-* Spring Boot services: as configured in `docker-compose.yml`
+* Spring Boot [http://localhost:8080](http://localhost:8080)
 
 5. Stop the services:
 
