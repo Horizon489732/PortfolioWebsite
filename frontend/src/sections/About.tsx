@@ -19,6 +19,7 @@ import DjangoLogo from "@/assets/logos/django.svg";
 import SpringLogo from "@/assets/logos/spring.svg";
 import MongoDBLogo from "@/assets/logos/mongodb.svg";
 import MySQLLogo from "@/assets/logos/mysql.svg";
+import PostgreSQL from "@/assets/logos/postgresql.svg";
 
 import PytorchLogo from "@/assets/logos/pytorch.svg";
 import SklearnLogo from "@/assets/logos/scikit-learn.svg";
@@ -56,6 +57,7 @@ const About: FC = () => {
         { name: "Springboot", logo: SpringLogo },
         { name: "MongoDB", logo: MongoDBLogo },
         { name: "MySQL", logo: MySQLLogo },
+        { name: "PostgreSQL", logo: PostgreSQL },
       ],
     },
     {

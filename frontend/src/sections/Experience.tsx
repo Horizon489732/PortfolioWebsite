@@ -10,7 +10,7 @@ const experiences = [
     date: "May 2024 – Sep 2025",
     bullets: [<>Contributed to the evaluation and optimization of a hybrid RoBERTa–TF-IDF model for multi-class classification of Reddit posts by suicide risk, achieving a weighted F1 score of 0.7512
         <a
-          href="https://your-paper-link.com"
+          href="https://arxiv.org/abs/2505.23797"
           target="_blank"
           rel="noopener noreferrer"
           className="text-accent ml-2 hover:border-b-2 hover:pb-1 hover:border-accent">
@@ -118,7 +118,7 @@ const Experience: FC = () => {
           ))}
         </div>
       </div>
-      <div ref={scrollingDiv} className="h-[300vh]"></div>
+      <div ref={scrollingDiv} className="h-[250vh]"></div>
     </section>
   );
 };
