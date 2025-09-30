@@ -38,11 +38,11 @@ A **full-stack personal portfolio** with a **Next.js frontend**, **Django backen
 ## Folder Structure
 
 ```bash
-/frontend          # Next.js frontend
-  /components      # React components (3DModel, ContactForm, Button)
-  /public/model    # 3D models (GLTF + FBX)
-/backend/django    # Django API for contact form
-/backend/springboot # Spring Boot microservices
+/frontend           # Next.js frontend
+  /public/model     # 3D models and animations
+  /src              # React Components
+/javabackend/       # Django app for Lenstra Theorem
+/pythonbackend/     # Spring Boot app for Legendre's Theorem & Lagrange's Descent
 docker-compose.yml  # Full stack orchestration
 ```
 
@@ -103,7 +103,7 @@ Access: [http://localhost:3000](http://localhost:3000)
 ### Django Backend
 
 ```bash
-cd backend/django
+cd pythonbackend
 pip install -r requirements.txt
 python manage.py runserver
 ```
@@ -113,7 +113,7 @@ Access: [http://localhost:8000](http://localhost:8000)
 ### Spring Boot Backend
 
 ```bash
-cd backend/springboot
+cd javabackend
 ./mvnw spring-boot:run
 ```
 
