@@ -15,8 +15,8 @@ A **full-stack personal portfolio** with a **Next.js frontend**, **Django backen
 - Uses `@react-three/fiber` and `@react-three/drei` for 3D rendering.  
 
 ### Backends
-- **Django:** Handles contact form submissions, API endpoints.  
-- **Spring Boot:** Provides additional microservices (optional features like analytics or portfolio data).  
+- **Django:** Handles Factorization using Elliptic Curve with Lenstra theorem".
+- **Spring Boot:** Computes Legendre's Theorem & Lagrange's Descent.  
 
 ### Deployment
 - Frontend deployed on **Render**.
