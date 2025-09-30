@@ -49,7 +49,7 @@ const socialLinks = [
 ]
 
   return (
-  <footer id="footer" className="py-24 md:py-32 lg:py-40 mt-12 md:mt-16 lg:mt-20 border-t border-primary-light bg-primary-dark">
+  <footer id="footer" className="py-24 md:py-32 lg:py-40 border-t border-primary-light bg-primary-dark">
 
     <div className="container text-support-brown lg:!max-w-full">
       <div className="flex flex-col lg:flex-row lg:justify-between items-center gap-8">

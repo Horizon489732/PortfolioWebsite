@@ -15,7 +15,7 @@ const Contact: FC = () => {
           <p className="md:text-2xl md:mt-5">Have a project in mind or a question to ask? Drop me a message—I&#39;d love to hear from you!</p>
         </div>
         <div className="mt-12 md:mt-20">
-          <div className="grid md:grid-cols-12">
+          <div className="grid md:grid-cols-12 sm:gap-4">
             <div className="col-span-12 md:col-span-5">
               <ContactForm />
             </div>
