@@ -30,11 +30,15 @@ const ContactForm: FC = () => {
 
     const handleSubmit = async (e: React.FormEvent) => {
             e.preventDefault();
+
+            console.log(form);
             await fetch("/form/contact", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(form),
             });
+
+            //reseting the form
             dispatch({ field: "name", value: "" });
             dispatch({ field: "email", value: "" });
             dispatch({ field: "subject", value: "" });
