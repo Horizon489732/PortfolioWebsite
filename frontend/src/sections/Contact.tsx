@@ -1,7 +1,8 @@
 "use client";
 
 import { FC } from "react";
-import ContactForm from "@/components/ContactForm";
+import ContactForm from "@/components/contactSectionComponents/ContactForm";
+import ContactExp from "@/components/contactSectionComponents/ContactExp";
 
 const Contact: FC = () => {
   return (
@@ -15,10 +16,14 @@ const Contact: FC = () => {
         </div>
         <div className="mt-12 md:mt-20">
           <div className="grid md:grid-cols-12">
-            <div className="md:col-span-5">
+            <div className="col-span-12 md:col-span-5">
               <ContactForm />
             </div>
-            <div className="md:col-span-7">hi</div>
+            <div className="col-span-12 md:col-span-7">
+              <div className="w-full h-full md:m-0 border border-primary">
+                <ContactExp />
+              </div>
+            </div>
           </div>
         </div>
       </div>
