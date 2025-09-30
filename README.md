@@ -19,17 +19,17 @@ A **full-stack personal portfolio** with a **Next.js frontend**, **Django backen
 - **Spring Boot:** Provides additional microservices (optional features like analytics or portfolio data).  
 
 ### Deployment
-- Frontend is live at hientranportfolio.onrender.com
-- Backend services can be run locally or via Docker Compose.  
+- Frontend deployed on **Render**.
+- Backend services are still being worked on.  
 
 ---
-ss
+
 ## Technologies
 
 - **Frontend:** React, Next.js, Tailwind CSS, Three.js  
-- **3D Models:** GLTF + FBX, SkeletonUtils  
+- **3D Models:** GLTF + FBX, SkeletonUtils; models from [Ready Player Me](https://readyplayer.me/) and animations from [Mixamo](https://www.mixamo.com/#/)
 - **Backend:** Django (Python), Spring Boot (Java)  
-- **Deployment:** Render, Docker Compose  
+- **Deployment:** Render, Docker  
 
 
 ---
