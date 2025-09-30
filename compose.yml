@@ -19,3 +19,12 @@ services:
     env_file:
       - .env
     command: ["java", "-jar", "app.jar"]
+  
+
+  nextjs-frontend:
+    build: ./frontend
+    container_name: nextjs-docker-portfolio
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env

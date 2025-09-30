@@ -8,6 +8,7 @@ import Button from "@/components/Button";
 import SplitType from "split-type";
 import { motion, useAnimate, useScroll, stagger, useTransform } from "motion/react";
 
+
 const Hero: FC = () => {
 
   const [titleScope, titleAnimate] = useAnimate();
@@ -26,7 +27,7 @@ const Hero: FC = () => {
 
     titleAnimate(titleScope.current.querySelectorAll(".word"), {transform: "translate(0)"}, {duration: .7, delay: stagger(.2)});
 
-  }, []);
+  }, [titleAnimate, titleScope]);
 
   return (
     <section>

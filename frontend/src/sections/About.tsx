@@ -96,7 +96,7 @@ const About: FC = () => {
   }, [inView, animate]);
 
   return (
-    <section id="about" className="pb-16 lg:py-24 bg-neutral-light">
+    <section id="about" className="py-16 lg:py-24 bg-neutral-light">
       <div className="container mx-auto px-4" ref={scope}>
         <h2 className="text-3xl md:text-5xl mb-6 text-center">About Me</h2>
         <p className="text-lg lg:text-xl text-primary-light mb-12 text-center text-pretty max-w-2xl mx-auto">

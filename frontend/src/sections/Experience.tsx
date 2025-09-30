@@ -1,7 +1,7 @@
 "use client";
 
 import { FC, useRef } from "react";
-import { motion, useScroll, useTransform, useMotionValueEvent, useMotionValue } from "framer-motion";
+import { motion, useScroll, useTransform, useMotionValueEvent, useMotionValue, MotionValue } from "framer-motion";
 
 const experiences = [
   {
@@ -32,6 +32,30 @@ const experiences = [
     ],
   },
 ];
+
+interface BulletProps {
+  index: number;
+  total: number;
+  frozenProgress: MotionValue<number>;
+  children: React.ReactNode;
+}
+
+const Bullet: FC<BulletProps> = ({ index, total, frozenProgress, children }) => {
+  const start = index / total;
+  const end = (index + 1) / total;
+
+  const opacity = useTransform(frozenProgress, [start, end], [0, 1]);
+  const x = useTransform(frozenProgress, [start, end], [-20, 0]);
+
+  return (
+    <motion.li style={{ opacity, x }} className="text-pretty">
+      {children}
+    </motion.li>
+  );
+};
+
+
+
 
 const Experience: FC = () => {
 
@@ -93,32 +117,22 @@ const Experience: FC = () => {
               </p>
               <hr className="border-t-2 border-neutral-light mt-4 md:mt-5"/>
               <ul className="list-disc list-inside space-y-1 mt-4 md:mt-5 text-secondary-dark">
-                {exp.bullets.map((point, idx) => {
-                      const total = exp.bullets.length;
-                      const start = idx / total;
-                      const end = (idx + 1) / total;
-
-                      const opacity = useTransform(
-                        frozenProgress,
-                        [start, end],
-                        [0, 1],
-                      );
-                      const x = useTransform(
-                        frozenProgress,
-                        [start, end],
-                        [-20, 0]
-                      );
-
-                return (<motion.li key={idx} style={{ opacity, x }} className="text-pretty">
-                          {point}
-                        </motion.li>);
-              })}
+                {exp.bullets.map((point, idx) => (
+                  <Bullet
+                    key={idx}
+                    index={idx}
+                    total={exp.bullets.length}
+                    frozenProgress={frozenProgress}
+                  >
+                    {point}
+                  </Bullet>
+                ))}
               </ul>
             </motion.div>
           ))}
         </div>
       </div>
-      <div ref={scrollingDiv} className="h-[250vh]"></div>
+      <div ref={scrollingDiv} className="h-[200vh] md:h-[250vh]"></div>
     </section>
   );
 };
