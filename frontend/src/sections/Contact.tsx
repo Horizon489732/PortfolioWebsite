@@ -20,7 +20,7 @@ const Contact: FC = () => {
               <ContactForm />
             </div>
             <div className="col-span-12 md:col-span-7">
-              <div className="w-full h-80 mx-auto max-w-sm md:max-w-none md:h-full md:border md:border-primary">
+              <div className="w-full h-80 mx-auto max-w-sm md:max-w-none md:h-full">
                 <ContactExp />
               </div>
             </div>

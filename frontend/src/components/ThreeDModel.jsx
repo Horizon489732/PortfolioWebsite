@@ -15,16 +15,45 @@ export default function ThreeDModel(props) {
   const clone = React.useMemo(() => SkeletonUtils.clone(scene), [scene])
   const { nodes, materials } = useGraph(clone)
 
-  const {animations} = useFBX("/model/Flair1.fbx");
-  console.log(animations);
-  animations[0].name = "Dance";
-  const action = useAnimations(animations, group);
+  const { animations: breakAnimations } = useFBX("/model/Breakdance Uprock Var 2.fbx");
+  breakAnimations[0].name = "Break";
+
+  const { animations: flairAnimations1 } = useFBX("/model/Flair1.fbx");
+  flairAnimations1[0].name = "Flair1";
+
+  const { animations: flairAnimations2 } = useFBX("/model/Flair2.fbx");
+  flairAnimations2[0].name = "Flair2";
+
+  const { animations: freezeAnimations } = useFBX("/model/Breakdance Freezes.fbx");
+  freezeAnimations[0].name = "Freeze";
+
+  const allAnimations = [...breakAnimations, ...flairAnimations1, ...flairAnimations2, ...freezeAnimations];
+  const { actions } = useAnimations(allAnimations, group);
 
   useEffect(() => {
-    if (action && action.actions["Dance"]) {
-      action.actions["Dance"].play();
-    }
-  }, [action]);
+      if (!actions) return;
+
+      const sequence = ["Break", "Flair1", "Flair2", "Freeze"];
+      let index = 0;
+
+      const playNext = () => {
+        const current = actions[sequence[index]];
+        if (!current) return;
+
+        current.reset().fadeIn(0.5).play();
+
+        const prevIndex = (index - 1 + sequence.length) % sequence.length;
+        const prev = actions[sequence[prevIndex]];
+        if (prev && prev !== current) prev.fadeOut(0.5);
+
+        index = (index + 1) % sequence.length;
+      };
+
+      playNext();
+
+      const interval = setInterval(playNext, 4500); // change every 5s
+      return () => clearInterval(interval);
+    }, [actions]);
 
   return (
     <group {...props} ref={group} dispose={null} rotation={[Math.PI, Math.PI, 0]}>
