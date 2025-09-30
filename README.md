@@ -1,0 +1,121 @@
+# Portfolio Website
+
+A **full-stack personal portfolio** with a **Next.js frontend**, **Django backend**, and **Spring Boot services**, featuring an interactive 3D avatar and a contact form.  
+
+**Live demo:** [hientranportfolio.onrender.com](https://hientranportfolio.onrender.com/)
+
+---
+
+## Features
+
+### Frontend (Next.js)
+- Interactive **3D avatar** with animations (GLTF + FBX).  
+- **Contact form** sending messages to backend.  
+- Responsive, mobile-first layout with Tailwind CSS.  
+- Uses `@react-three/fiber` and `@react-three/drei` for 3D rendering.  
+
+### Backends
+- **Django:** Handles contact form submissions, API endpoints.  
+- **Spring Boot:** Provides additional microservices (optional features like analytics or portfolio data).  
+
+### Deployment
+- Frontend is live at hientranportfolio.onrender.com
+- Backend services can be run locally or via Docker Compose.  
+
+---
+ss
+## Technologies
+
+- **Frontend:** React, Next.js, Tailwind CSS, Three.js  
+- **3D Models:** GLTF + FBX, SkeletonUtils  
+- **Backend:** Django (Python), Spring Boot (Java)  
+- **Deployment:** Render, Docker Compose  
+
+
+---
+
+
+## Folder Structure
+
+/frontend          # Next.js frontend
+  /components      # React components (3DModel, ContactForm, Button)
+  /public/model    # 3D models (GLTF + FBX)
+/backend/django    # Django API for contact form
+/backend/springboot # Spring Boot microservices
+docker-compose.yml  # Full stack orchestration
+
+
+---
+
+
+# Run Locally
+
+## Prerequisites
+
+* [Docker](https://www.docker.com/get-started)
+* [Docker Compose](https://docs.docker.com/compose/install/)
+* [Node.js](https://nodejs.org/en/) (if running frontend separately)
+* [Python](https://www.python.org/) & [pip](https://pip.pypa.io/en/stable/) (if running Django separately)
+* Java & Maven (if running Spring Boot separately)
+
+## Option 1: Using Docker Compose (Recommended)
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/Horizon489732/PortfolioWebsite.git
+cd PortfolioWebsite
+```
+
+2. Ensure environment variables are set if needed (e.g., `.env` file).
+
+3. Start all services:
+
+```bash
+docker-compose up --build
+```
+
+4. Access the application:
+
+* Frontend: [http://localhost:3000](http://localhost:3000)
+* Django API: [http://localhost:8000](http://localhost:8000)
+* Spring Boot services: as configured in `docker-compose.yml`
+
+5. Stop the services:
+
+```bash
+docker-compose down
+```
+
+## Option 2: Running Services Individually
+
+### Frontend (Next.js)
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+Access: [http://localhost:3000](http://localhost:3000)
+
+### Django Backend
+
+```bash
+cd backend/django
+pip install -r requirements.txt
+python manage.py runserver
+```
+
+Access: [http://localhost:8000](http://localhost:8000)
+
+### Spring Boot Backend
+
+```bash
+cd backend/springboot
+./mvnw spring-boot:run
+```
+
+Access: [http://localhost:8080](http://localhost:8080)
+
+> **Note:** Option 2 is useful for development or debugging specific services but requires manual setup and coordination.
