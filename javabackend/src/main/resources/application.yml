@@ -18,16 +18,18 @@ spring:
       - optional:file:../../../../../../../../.env[.properties]
       - optional:file:../../../../../../../../../.env[.properties]
 
-gmail:
-  client-id: ${CLIENT_ID}
-  client-secret: ${CLIENT_SECRET}
-  refresh-token: ${REFRESH_TOKEN}
-  from-email: ${FROM_EMAIL_ADRESS}
-  smtp:
+  mail:
     host: smtp.gmail.com
     port: 587
-    auth: true
-    starttls: true
+    username: ${FROM_EMAIL_ADDRESS}
+    password: ${FROM_EMAIL_APP_PASSWORD}
+    protocol: smtp
+    properties:
+      mail.smtp.auth: true
+      mail.smtp.starttls.enable: true
+      mail.smtp.connectiontimeout: 5000
+      mail.smtp.timeout: 5000
+      mail.smtp.writetimeout: 5000
 
 logging:
   level:
