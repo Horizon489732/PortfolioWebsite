@@ -5,7 +5,7 @@ import Theory from "@/components/theoriesSectionComponents/Theory";
 const myTheoryProjects = [
     {
         id: 1,
-        title: "Factorization with Elliptic Curve with Lenstra theorem",
+        title: "Factorization using Elliptic Curve with Lenstra theorem",
         description: "Lenstra's algorithm is like throwing darts at a target until you hit the bullseye. Each dart is a different elliptic curve, and hitting the bullseye means finding a prime factor of the number. For any given curve, we have some chance of success—if the group size works out nicely, we land the hit and uncover a factor. If that curve doesn't work, instead of giving up, we simply throw another dart by choosing a new curve. Because the group sizes change a lot from curve to curve, the odds of eventually hitting the prime factor are pretty good",
         theory: [
             "Let n ≥ 2 be composite. Ensure gcd(n,6) = 1 and n is not a perfect power",

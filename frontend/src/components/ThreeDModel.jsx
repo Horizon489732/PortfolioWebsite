@@ -51,7 +51,7 @@ export default function ThreeDModel(props) {
 
       playNext();
 
-      const interval = setInterval(playNext, 4500); // change every 5s
+      const interval = setInterval(playNext, 4500); // change every 4.5s
       return () => clearInterval(interval);
     }, [actions]);
 

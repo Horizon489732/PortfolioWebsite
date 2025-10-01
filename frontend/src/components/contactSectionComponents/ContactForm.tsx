@@ -15,18 +15,20 @@ type Action = { field: keyof FormState; value: string };
 
 const initialState: FormState = { name: "", email: "", subject: "", message: "" };
 
-function reducer(state: FormState, action: Action): FormState {
-  return { ...state, [action.field]: action.value };
+function formReducer(prevState: FormState, action: Action): FormState {
+    const { field, value } = action;
+    return { ...prevState, [field]: value };
 }
-
 
 const ContactForm: FC = () => {
 
-    const [form, dispatch] = useReducer(reducer, initialState);
+    const [form, dispatch] = useReducer(formReducer, initialState);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-        dispatch({ field: e.target.id as keyof FormState, value: e.target.value });
-    };
+    const { id, value } = e.target; 
+    const action: Action = { field: id as keyof FormState, value };
+    dispatch(action);
+};
 
     const handleSubmit = async (e: React.FormEvent) => {
             e.preventDefault();
