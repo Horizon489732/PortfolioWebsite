@@ -205,13 +205,10 @@ public class LegendreService {
                 .bodyToMono(new ParameterizedTypeReference<Map<String, List<Integer>>>() {
                 })
                 .map(map -> {
-                    System.out.println("Received factors response: " + map);
                     List<Integer> list = map.get("factors");
-                    System.out.println("List factors response: " + list.toString());
-                    Set<Integer> set = new HashSet<>(list); // assign to interface type
+                    Set<Integer> set = new HashSet<>(list);
                     set.remove(Integer.valueOf(-1));
-                    System.out.println("Set factors response: " + set.toString());
-                    return set; // now Mono<Set<Integer>>
+                    return set;
                 })
                 .onErrorResume(e -> {
                     e.printStackTrace();
@@ -222,7 +219,7 @@ public class LegendreService {
 
     private Set<Integer> fallbackFactors(int num) {
 
-        System.out.println("It goes herer");
+        System.out.println("It goes into fallbackFactors");
 
         Set<Integer> factors = new HashSet<>();
 
@@ -248,8 +245,6 @@ public class LegendreService {
     }
 
     private Mono<Integer> getRidOfSquare(int num) {
-
-        System.out.println("Checking getRidOfSquare for " + num);
 
         return factorsOf(num).map(factors -> {
             int result = num;

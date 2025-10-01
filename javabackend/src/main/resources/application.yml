@@ -5,6 +5,30 @@ spring:
   application:
     name: javabackend
 
+  config:
+    import:
+      - optional:file:.env[.properties]
+      - optional:file:../.env[.properties]
+      - optional:file:../../.env[.properties]
+      - optional:file:../../../.env[.properties]
+      - optional:file:../../../../.env[.properties]
+      - optional:file:../../../../../.env[.properties]
+      - optional:file:../../../../../../.env[.properties]
+      - optional:file:../../../../../../../.env[.properties]
+      - optional:file:../../../../../../../../.env[.properties]
+      - optional:file:../../../../../../../../../.env[.properties]
+
+gmail:
+  client-id: ${CLIENT_ID}
+  client-secret: ${CLIENT_SECRET}
+  refresh-token: ${REFRESH_TOKEN}
+  from-email: ${FROM_EMAIL_ADRESS}
+  smtp:
+    host: smtp.gmail.com
+    port: 587
+    auth: true
+    starttls: true
+
 logging:
   level:
     org.springframework.web.reactive.function.client.ExchangeFunctions: TRACE

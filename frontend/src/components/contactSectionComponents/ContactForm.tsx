@@ -34,7 +34,7 @@ const ContactForm: FC = () => {
             e.preventDefault();
 
             console.log(form);
-            await fetch("/form/contact", {
+            await fetch("http://localhost:8080/form/contact", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(form),
