@@ -23,6 +23,7 @@ spring:
     port: 587
     username: ${FROM_EMAIL_ADDRESS}
     password: ${FROM_EMAIL_APP_PASSWORD}
+    personal: ${PERSONAL_EMAIL_ADDRESS}
     protocol: smtp
     properties:
       mail.smtp.auth: true
