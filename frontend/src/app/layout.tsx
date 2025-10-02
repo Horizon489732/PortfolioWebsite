@@ -10,7 +10,7 @@ const archivo = Archivo({
 });
 
 export const metadata: Metadata = {
-  title: "Page Portfolio",
+  title: "Hien Portfolio",
   description: "Portfolio Website",
 };
 
