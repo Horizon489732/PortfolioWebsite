@@ -19,7 +19,7 @@ A **full-stack personal portfolio** with a **Next.js frontend**, **Django backen
 - **Spring Boot:** Computes Legendre's Theorem & Lagrange's Descent.  
 
 ### Deployment
-- Frontend deployed on **Render**.
+- Frontend deployed on **Vercel**.
 - Backend services are still being worked on.  
 
 ---
@@ -29,7 +29,7 @@ A **full-stack personal portfolio** with a **Next.js frontend**, **Django backen
 - **Frontend:** React, Next.js, Tailwind CSS, Three.js  
 - **3D Models:** GLTF + FBX, SkeletonUtils; models from [Ready Player Me](https://readyplayer.me/) and animations from [Mixamo](https://www.mixamo.com/#/)
 - **Backend:** Django (Python), Spring Boot (Java)  
-- **Deployment:** Render, Docker  
+- **Deployment:** Vercel, Docker  
 
 
 ---
