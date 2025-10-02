@@ -2,7 +2,7 @@
 
 A **full-stack personal portfolio** with a **Next.js frontend**, **Django backend**, and **Spring Boot services**, featuring an interactive 3D avatar and a contact form.  
 
-**Live demo:** [hien-tran-portfolio.vercel.app](https://hien-tran-portfolio.vercel.app/)
+**Live demo:** [hien-tran.vercel.app](https://hien-tran.vercel.app/)
 
 ---
 
