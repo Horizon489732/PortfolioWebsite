@@ -1,7 +1,6 @@
 "use client"
 
 import { FC, useReducer, useState } from "react";
-import emailjs from "@emailjs/browser";
 
 import Button from "../Button";
 
@@ -24,70 +23,53 @@ function formReducer(prevState: FormState, action: Action): FormState {
 const ContactForm: FC = () => {
 
     const [form, dispatch] = useReducer(formReducer, initialState);
-    const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { id, value } = e.target; 
-    const action: Action = { field: id as keyof FormState, value };
-    dispatch(action);
-};
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    dispatch({ field: e.target.id as keyof FormState, value: e.target.value });
+  };
 
-    const handleSubmit = async (e: React.FormEvent) => {
-            e.preventDefault();
-            setLoading(true);
+  const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+        setLoading(true);
 
-             // Non-Empty
-            if (!form.name || !form.email || !form.subject || !form.message) {
-                alert("Please fill in all fields.");
-                setLoading(false);
-                return;
-            }
+        if (!form.name || !form.email || !form.subject || !form.message) {
+        alert("Please fill in all fields.");
+        setLoading(false);
+        return;
+        }
 
-            // Email checking
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(form.email)) {
-                alert("Please enter a valid email address.");
-                setLoading(false);
-                return;
-            }
-            
-            const customerMail = {
-                email: form.email,
-                name: form.name,
-                message: form.message,
-                subject: form.subject,
-            }
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(form.email)) {
+        alert("Please enter a valid email address.");
+        setLoading(false);
+        return;
+        }
 
-            const adminMail = {
-                title: form.subject,
-                name: form.name,
-                time: new Date().toUTCString(),
-                message: form.message,
-                email: form.email,
-            }
+        try {
+        const res = await fetch("/api/send-email", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(form),
+        });
 
-            const serviceKey = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_KEY;
-            const customerTemplateId = process.env.NEXT_PUBLIC_EMAILJS_CUSTOMER_TEMPLATE_ID;
-            const adminTemplateId = process.env.NEXT_PUBLIC_EMAILJS_ADMIN_TEMPLATE_ID;
-            const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
+        const data = await res.json();
 
-            try {
-                await emailjs.send(serviceKey!, customerTemplateId!, customerMail, publicKey!);
-                await emailjs.send(serviceKey!, adminTemplateId!, adminMail, publicKey!);
-
-                // Reset the form
-                dispatch({ field: "name", value: "" });
-                dispatch({ field: "email", value: "" });
-                dispatch({ field: "subject", value: "" });
-                dispatch({ field: "message", value: "" });
-
-                alert("Message sent successfully!");
-            } catch (error) {
-                console.error("Email sending error:", error);
-                alert("Failed to send message. Please try again later.");
-            } finally {
-                setLoading(false);
-            }
+        if (data.success) {
+            alert("Message sent successfully!");
+            dispatch({ field: "name", value: "" });
+            dispatch({ field: "email", value: "" });
+            dispatch({ field: "subject", value: "" });
+            dispatch({ field: "message", value: "" });
+        } else {
+            alert("Failed to send message. Please try again later.");
+        }
+        } catch (error) {
+        console.error("Error:", error);
+        alert("Something went wrong.");
+        } finally {
+        setLoading(false);
+        }
     };
 
     return(
