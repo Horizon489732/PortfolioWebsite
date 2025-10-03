@@ -1,6 +1,6 @@
 # Portfolio Website
 
-A **full-stack personal portfolio** with a **Next.js frontend**, **Django backend**, and **Spring Boot services**, featuring an interactive 3D avatar and a contact form.  
+A **full-stack personal portfolio** featuring a **Next.js frontend** with an interactive 3D avatar and a contact form using **EmailJS**.  
 
 **Live demo:** [hien-tran.vercel.app](https://hien-tran.vercel.app/)
 
@@ -10,42 +10,41 @@ A **full-stack personal portfolio** with a **Next.js frontend**, **Django backen
 
 ### Frontend (Next.js)
 - Interactive **3D avatar** with animations (GLTF + FBX).  
-- **Contact form** sending messages to backend.  
-- Responsive, mobile-first layout with Tailwind CSS.  
+- **Contact form** sending messages via **EmailJS**.  
+- Responsive, mobile-first design with Tailwind CSS.  
 - Uses `@react-three/fiber` and `@react-three/drei` for 3D rendering.  
 
-### Backends
-- **Django:** Handles Factorization using Elliptic Curve with Lenstra theorem.
-- **Spring Boot:** Computes Legendre's Theorem & Lagrange's Descent.  
+### Backends (functional but on hold)
+- **Django:** Factorization using Elliptic Curve with Lenstra theorem (planned).  
+- **Spring Boot:** Computation of Legendre's Theorem & Lagrange's Descent (planned).
+- > ⚠️ These backends are working locally but **not planned for deployment** at this time.  
 
 ### Deployment
-- Frontend deployed on **Vercel**.
-- Backend services are still being worked on.  
+- Frontend deployed on **Vercel**.  
+- Backend services are kept local for experimentation.
 
 ---
 
 ## Technologies
 
 - **Frontend:** React, Next.js, Tailwind CSS, Three.js  
-- **3D Models:** GLTF + FBX, SkeletonUtils; models from [Ready Player Me](https://readyplayer.me/) and animations from [Mixamo](https://www.mixamo.com/#/)
-- **Backend:** Django (Python), Spring Boot (Java)  
-- **Deployment:** Vercel, Docker  
-
+- **3D Models & Animations:** GLTF + FBX, SkeletonUtils; models from [Ready Player Me](https://readyplayer.me/) and animations from [Mixamo](https://www.mixamo.com/#/)  
+- **Email Handling:** EmailJS  
+- **Backend (planned):** Django (Python), Spring Boot (Java)  
+- **Deployment & DevOps:** Vercel, Docker  
 
 ---
-
 
 ## Folder Structure
 
 ```bash
 /frontend           # Next.js frontend
   /public/model     # 3D models and animations
-  /src              # React Components
-/javabackend/       # Django app for Lenstra Theorem
-/pythonbackend/     # Spring Boot app for Legendre's Theorem & Lagrange's Descent
-docker-compose.yml  # Full stack orchestration
+  /src              # React components
+/javabackend/       # Django app for Lenstra Theorem (planned)
+/pythonbackend/     # Spring Boot app for Legendre & Lagrange (planned)
+docker-compose.yml  # Full stack orchestration (optional)
 ```
-
 ---
 
 
@@ -53,8 +52,7 @@ docker-compose.yml  # Full stack orchestration
 
 ## Prerequisites
 
-* [Docker](https://www.docker.com/get-started)
-* [Docker Compose](https://docs.docker.com/compose/install/)
+* [Docker](https://www.docker.com/get-started) & [Docker Compose](https://docs.docker.com/compose/install/)
 * [Node.js](https://nodejs.org/en/) (if running frontend separately)
 * [Python](https://www.python.org/) & [pip](https://pip.pypa.io/en/stable/) (if running Django separately)
 * Java & Maven (if running Spring Boot separately)
