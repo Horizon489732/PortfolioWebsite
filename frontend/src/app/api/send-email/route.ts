@@ -20,7 +20,7 @@ export async function POST(req: Request) {
       email,
     };
 
-    const publicKey = process.env.EMAILJS_PUBLIC_KEY;
+    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
     const privateKey = process.env.EMAILSJS_PRIVATE_KEY;
     const serviceKey = process.env.EMAILJS_SERVICE_KEY;
     const adminTemplateKey = process.env.EMAILJS_ADMIN_TEMPLATE_ID;
