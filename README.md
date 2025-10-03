@@ -15,9 +15,11 @@ A **full-stack personal portfolio** featuring a **Next.js frontend** with an int
 - Uses `@react-three/fiber` and `@react-three/drei` for 3D rendering.  
 
 ### Backends (functional but on hold)
-- **Django:** Factorization using Elliptic Curve with Lenstra theorem (planned).  
-- **Spring Boot:** Computation of Legendre's Theorem & Lagrange's Descent (planned).
-- > ⚠️ These backends are working locally but **not planned for deployment** at this time.  
+- **Django:** Factorization using Elliptic Curve with Lenstra theorem.
+  Runs locally to accept integers, perform factorization, and return results.
+- **Spring Boot:** Computation of Legendre's Theorem & Lagrange's Descent.
+  Runs locally to numeric inputs and returning computed results. 
+- > ⚠️ These backends are working locally as I’m still exploring deployment options.
 
 ### Deployment
 - Frontend deployed on **Vercel**.  
