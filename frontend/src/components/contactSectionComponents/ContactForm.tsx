@@ -1,6 +1,7 @@
 "use client"
 
-import { FC, useReducer } from "react";
+import { FC, useReducer, useState } from "react";
+import emailjs from "@emailjs/browser";
 
 import Button from "../Button";
 
@@ -23,6 +24,7 @@ function formReducer(prevState: FormState, action: Action): FormState {
 const ContactForm: FC = () => {
 
     const [form, dispatch] = useReducer(formReducer, initialState);
+    const [loading, setLoading] = useState(false);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { id, value } = e.target; 
@@ -32,19 +34,60 @@ const ContactForm: FC = () => {
 
     const handleSubmit = async (e: React.FormEvent) => {
             e.preventDefault();
+            setLoading(true);
 
-            console.log(form);
-            await fetch("http://localhost:8080/form/contact", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(form),
-            });
+             // Non-Empty
+            if (!form.name || !form.email || !form.subject || !form.message) {
+                alert("Please fill in all fields.");
+                setLoading(false);
+                return;
+            }
 
-            //reseting the form
-            dispatch({ field: "name", value: "" });
-            dispatch({ field: "email", value: "" });
-            dispatch({ field: "subject", value: "" });
-            dispatch({ field: "message", value: "" });
+            // Email checking
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(form.email)) {
+                alert("Please enter a valid email address.");
+                setLoading(false);
+                return;
+            }
+            
+            const customerMail = {
+                email: form.email,
+                name: form.name,
+                message: form.message,
+                subject: form.subject,
+            }
+
+            const adminMail = {
+                title: form.subject,
+                name: form.name,
+                time: new Date().toUTCString(),
+                message: form.message,
+                email: form.email,
+            }
+
+            const serviceKey = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_KEY;
+            const customerTemplateId = process.env.NEXT_PUBLIC_EMAILJS_CUSTOMER_TEMPLATE_ID;
+            const adminTemplateId = process.env.NEXT_PUBLIC_EMAILJS_ADMIN_TEMPLATE_ID;
+            const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
+
+            try {
+                await emailjs.send(serviceKey!, customerTemplateId!, customerMail, publicKey!);
+                await emailjs.send(serviceKey!, adminTemplateId!, adminMail, publicKey!);
+
+                // Reset the form
+                dispatch({ field: "name", value: "" });
+                dispatch({ field: "email", value: "" });
+                dispatch({ field: "subject", value: "" });
+                dispatch({ field: "message", value: "" });
+
+                alert("Message sent successfully!");
+            } catch (error) {
+                console.error("Email sending error:", error);
+                alert("Failed to send message. Please try again later.");
+            } finally {
+                setLoading(false);
+            }
     };
 
     return(
@@ -77,7 +120,7 @@ const ContactForm: FC = () => {
                               maxLength={700} value={form.message} onChange={handleChange}/>
                 </div>
 
-                <Button type="submit" variant="primary" className="justify-center rounded-sm">Send Message</Button>
+                <Button type="submit" variant="primary" className="justify-center rounded-sm" disabled={loading}>{loading ? "Sending..." : "Send Message"}</Button>
             </form>
         </div>
     );
