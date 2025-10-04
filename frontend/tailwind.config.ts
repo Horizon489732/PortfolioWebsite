@@ -50,11 +50,21 @@ const config: Config = {
                     "100%": {
                         transform: "translateX(-50%)"
                     },
-                }
+                },
+
+                "spin": {
+                    "0%": {
+                        transform: "rotate(0deg)"
+                    },
+                    "100%": {
+                        transform: "rotate(360deg)"
+                    }
+                },
             },
 
             animation: {
-                "move-left": "move-left 1s linear infinite"
+                "move-left": "move-left 1s linear infinite",
+                "spin": "spin 2s linear infinite",
             },
 
             container: {
