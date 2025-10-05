@@ -5,6 +5,7 @@ import { FC, useReducer, useState } from "react";
 import Button from "../Button";
 import LoaderModal from "../LoaderModal";
 import { useDisableScrollbar } from "@/hooks/useDisableScrollbar";
+import { useAlert } from "@/hooks/useAlert";
 
 type FormState = {
   name: string;
@@ -28,6 +29,7 @@ const ContactForm: FC = () => {
     const [isLoading, setIsLoading] = useState(false);
 
     useDisableScrollbar(isLoading)
+    const { showAlert } = useAlert();
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         dispatch({ field: e.target.id as keyof FormState, value: e.target.value });
@@ -37,17 +39,17 @@ const ContactForm: FC = () => {
             e.preventDefault();
             setIsLoading(true);
 
-            if (!form.name || !form.email || !form.subject || !form.message) {
-            alert("Please fill in all fields.");
-            setIsLoading(false);
-            return;
+            if (!form.name.trim() || !form.email.trim() || !form.subject.trim() || !form.message.trim()) {
+                showAlert("Error", "Please fill in all fields.");
+                setIsLoading(false);
+                return;
             }
 
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!emailRegex.test(form.email)) {
-            alert("Please enter a valid email address.");
-            setIsLoading(false);
-            return;
+                showAlert("Error", "Please enter a valid email address.");
+                setIsLoading(false);
+                return;
             }
 
             try {
@@ -60,19 +62,19 @@ const ContactForm: FC = () => {
             const data = await res.json();
 
             if (data.success) {
-                alert("Message sent successfully!");
+                showAlert("Success", "Message sent successfully!");
                 dispatch({ field: "name", value: "" });
                 dispatch({ field: "email", value: "" });
                 dispatch({ field: "subject", value: "" });
                 dispatch({ field: "message", value: "" });
             } else {
-                alert("Failed to send message. Please try again later.");
+                showAlert("Error", "Failed to send message. Try again.");
             }
             } catch (error) {
-            console.error("Error:", error);
-            alert("Something went wrong.");
+                console.error("Error:", error);
+                showAlert("Error", "Failed to send message. Try again.");
             } finally {
-            setIsLoading(false);
+                setIsLoading(false);
             }
         };
 

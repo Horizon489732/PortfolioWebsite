@@ -19,7 +19,7 @@ WORKDIR /app
 # Set environment variables 
 # Prevents Python from writing pyc files to disk
 ENV PYTHONDONTWRITEBYTECODE=1
-#Prevents Python from buffering stdout and stderr
+# Prevents Python from buffering stdout and stderr
 ENV PYTHONUNBUFFERED=1 
 
 # Upgrade pip
@@ -58,6 +58,11 @@ COPY --chown=appuser:appuser . .
 # Set environment variables to optimize Python
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1 
+
+# Add entrypoint to run migrations automatically
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+ENTRYPOINT ["/entrypoint.sh"]
 
 # Switch to non-root user
 USER appuser

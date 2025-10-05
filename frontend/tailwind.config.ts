@@ -1,4 +1,3 @@
-import { transform } from "next/dist/build/swc";
 import type { Config } from "tailwindcss";
 
 const config: Config = {
@@ -60,11 +59,31 @@ const config: Config = {
                         transform: "rotate(360deg)"
                     }
                 },
+
+                "slide-in-out": {
+                    "0%": {
+                        right: "-500px",
+                        opacity: "1"
+                    },
+                    "10%": {
+                        right: "20px",
+                        opacity: "1"
+                    },
+                    "90%": {
+                        right: "20px",
+                        opacity: "1"
+                    },
+                    "100%": {
+                        right: "-500px",
+                        opacity: "1"
+                    }
+                },
             },
 
             animation: {
                 "move-left": "move-left 1s linear infinite",
                 "spin": "spin 2s linear infinite",
+                "slide-in-out": "slide-in-out 4s ease-in-out forwards",
             },
 
             container: {
